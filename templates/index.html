@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+  <title>Patient Data</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div>
+  	<h1>Patient Data</h1>
+	<table id="patient-table">
+  	<thead>
+  		<tr class="main-header">
+  		  <th>Name</th>
+  		  <th>Provider</th>
+        <th>A1C</th>
+        <th>Complication</th>
+  		</tr>
+      <tr class="sub-header">
+        <th><a href="https://na73.lightning.force.com/one/one.app#/setup/page?nodeId=NavigationMenus&address=%2F_ui%2Fcore%2Fapplication%2Fforce%2Fconnectedapp%2FForceConnectedApplicationPage%2Fd%3FconnectedAppId%3D0H41I000000YAY4SAO%26retURL%3D%252Fsetup%252FNavigationMenus%252Fhome&a:t=1508213224549" target="_blank">Salesforce</a></th>
+        <th><a href="https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2#Instances:sort=instanceId" target="_blank">Amazon VPC</a></th>
+        <th>Heroku Postgres</th>
+        <th>Microservice</th>
+      </tr>
+  	</thead>
+    <tbody> 
+ 	  {% for s in data %}
+  		<tr>
+      	<td>{{ s.name }}</td>
+        <td>{{ s.provider }}</td>
+        <td>{{ s.a1c }}</td>
+        <td>{{ s.risk }}</td>
+     	</tr>
+   	{% endfor %}
+    </tbody>
+   	</table>
+</div>
+</body>
+</html>

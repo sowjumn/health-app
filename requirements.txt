@@ -1,0 +1,11 @@
+gunicorn
+Flask
+Jinja2
+Werkzeug
+psycopg2
+redis
+jsonpickle
+sqlalchemy
+alembic
+pymongo
+requests

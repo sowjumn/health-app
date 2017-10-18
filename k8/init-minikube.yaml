@@ -1,0 +1,5 @@
+kubectl create secret docker-registry gcr-json-key \
+    --docker-server=https://gcr.io \
+    --docker-username=_json_key \
+    --docker-password="$(cat ~/Code/kubernetes-project-gcr.json)" \
+    --docker-email=jbyrum@heroku.com

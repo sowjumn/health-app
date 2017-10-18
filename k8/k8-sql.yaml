@@ -1,0 +1,39 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: postgres
+spec:
+  replicas: 1
+  
+  #the pod template
+  template:
+    metadata:
+      labels:
+        app: postgres
+        version: v1
+    spec:
+      imagePullSecrets:
+        - name: gcr-json-key
+      containers:
+        - name:  ns-postgres
+          ports:
+            - containerPort: 5432
+          image: postgres
+          env:
+            - name: POSTGRES_USER
+              value: "myuser" 
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres-service
+  labels:
+    app: postgres
+spec:
+  ports:
+    # the port that this service should serve on
+  - port: 5432
+    targetPort: 5432
+  selector:
+    app: postgres

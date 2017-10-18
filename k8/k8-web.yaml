@@ -1,0 +1,28 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: web-frontend
+spec:
+  replicas: 3
+
+  #the pod template
+  template:
+    metadata:
+      labels:
+        app: web-frontend
+        version: v5
+    spec:
+      imagePullSecrets:
+        - name: gcr-json-key
+      containers:
+        - name:  ns-web
+          ports:
+            - containerPort: 5000
+          image: gcr.io/kubernetes-161617/neighborshamer_web
+          env:
+            - name: PORT
+              value: "5000"
+            - name: DATABASE_URL
+              value: "postgres://postgres@db:5432/"
+            - name: REDIS_URL
+              value: "redis://redis:6379"
