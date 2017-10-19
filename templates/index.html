@@ -3,6 +3,8 @@
 <head>
   <title>Patient Data</title>
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='shading.js') }}"></script>
 </head>
 <body>
 <div>
@@ -13,7 +15,7 @@
   		  <th>Name</th>
   		  <th>Provider</th>
         <th>A1C</th>
-        <th>Complication</th>
+        <th>Risk</th>
   		</tr>
       <tr class="sub-header">
         <th><a href="https://na73.lightning.force.com/one/one.app#/setup/page?nodeId=NavigationMenus&address=%2F_ui%2Fcore%2Fapplication%2Fforce%2Fconnectedapp%2FForceConnectedApplicationPage%2Fd%3FconnectedAppId%3D0H41I000000YAY4SAO%26retURL%3D%252Fsetup%252FNavigationMenus%252Fhome&a:t=1508213224549" target="_blank">Salesforce</a></th>
