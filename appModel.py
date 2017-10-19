@@ -11,7 +11,7 @@ from sqlalchemy import *
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from datetime import datetime, timedelta
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, jsonify
 from pymongo import MongoClient
 from bson import json_util
 
@@ -35,17 +35,24 @@ def uniqueName(name):
 
 def combineData(providerData, bloodData):
     combined = []
+    aoneDict = []
+
+    for y in bloodData:
+        aoneDict.append(y.a1c)
+
+    risks = getRisks(aoneDict)
+
     for x in providerData:
-        for y in bloodData:
+        for index, y in enumerate(bloodData):
             if x["nameid"] == y.nameid:
-                risk = getRisk(y.a1c)
+                risk = risks[index] 
                 user = { 'name': x["name"], 'provider': x["provider"], 'a1c': round(float(y.a1c / 100),1), 'risk': risk }
                 combined.append(user)
     return combined
 
-def getRisk(value):
-    url = riskUrl + "/?risk=" + str(value)
-    r = requests.get(url)
+def getRisks(risks):
+    risksJson = json.dumps(risks)
+    r = requests.post(riskUrl, data=risksJson)
     return r.json()
 
 def getData():
@@ -70,7 +77,7 @@ def insertInitData():
 
     for x in names:
         insertProviderData(x, random.choice(providers))
-        insertA1C(x, random.randint(600, 1000))
+        insertA1C(x, random.randint(450, 1000))
 
 def insertProviderData(name, provider):
     data = mongo.insertHealth(uniqueName(name), name, provider)
