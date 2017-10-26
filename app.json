@@ -17,7 +17,7 @@
     }
   },
   "formation": {
-  }
+  },
   "buildpacks": [
     {
       "url": "heroku/python"
