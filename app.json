@@ -17,12 +17,7 @@
     }
   },
   "formation": {
-  },
-  "addons": [
-    "mongolab",
-    "heroku-postgresql",
-    "heroku-redis"
-  ],
+  }
   "buildpacks": [
     {
       "url": "heroku/python"
