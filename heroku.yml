@@ -1,7 +1,7 @@
 build:
-  language:
+  languages:
     - python
   packages:
     - mongodb-org-shell
 run:
-  - gunicorn --bind 0.0.0.0:$PORT wsgi
+  web: gunicorn --bind 0.0.0.0:$PORT wsgi
