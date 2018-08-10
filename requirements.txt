@@ -2,7 +2,7 @@ gunicorn
 Flask
 Jinja2
 Werkzeug
-psycopg2
+psycopg2-binary
 redis
 jsonpickle
 sqlalchemy

@@ -7,8 +7,8 @@ def getToken():
 	consumer_key = "3MVG9g9rbsTkKnAUFgazceOHx1NTz._0YwU9ud8_DkwAfUDWtaixvlD97kN6E_auT7NR77K.ztrInAyL1dnCs"
 	consumer_secret = "836889050885337481"
 	username = "jon.byrum@gmail.com"
-	password = "asdf1234"
-	security_token = "ITS9p6FytVVDe0xJXTiw7Kv2Q"
+	password = "Hj3CodgmM6v9*8f"
+	security_token = "6YKjSzTlNGB6h6In2cqRl5WO"
 
 	payload = {
 	    'grant_type': 'password',
