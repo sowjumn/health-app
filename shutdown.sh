@@ -1,7 +1,5 @@
 heroku ps:scale web=0 -a health-demo-staging
 heroku ps:scale web=0 -a health-demo-fr
-heroku ps:scale web=0 -a health-demo-many-dynos
-heroku ps:scale worker=0 -a health-demo-many-dynos
 heroku ps:scale web=0 -a health-demo-or
 heroku ps:scale web=0 -a health-demo-to
 heroku ps:scale web=0 -a health-demo-risk-staging
